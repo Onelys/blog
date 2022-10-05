@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+{% load static %} 
+
+        {% block titulo %}
+           {{detalle_post.titulo}}
+        {% endblock %}
+
+       
+        {% block imagen %}
+           {{detalle_post.imagen}}
+        {% endblock imagen %}
+
+
+        {% block titulo_central %}
+            {{detalle_post.titulo}}
+        {% endblock %}
+
+
+        {% block subtitulo %}
+            {{detalle_post.descripcion}}
+        {% endblock %}
+
+        
+        {% block barra_busqueda %}
+        {% endblock %}
+
+        {% block contenido %}
+        <!-- contenido generales-->
+        {{detalle_post.contenido | safe}}
+          
+        {% endblock %}
+       

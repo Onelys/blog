@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% load static %} 
+
+        {% block titulo %}tutoriales{% endblock%}
+
+        {% block titulo_principal %}Tutoriales{% endblock %}
+
+        {% block imagen %} {% endblock imagen %}
+
+        {% block titulo_central %}Tutoriales para crecer{% endblock %}
+
+        {% block subtitulo %}Marcos:16.15{% endblock %}
+
+        {% block barra_busqueda %}
+        {% endblock %}
+        
+        {% block contenido %}
+        <!-- contenido generales-->
+        {% if posts %}
+        {% for post in posts%}
+           <div class="post-preview">
+              <a href="{% url 'blog:detalle_post' post.slug %}">
+                 <h2 class="post-title">{{ post.titulo }}</h2>
+                 <h3 class="post-subtitle">{{ post.descripcion }}</h3>
+              </a>
+                 <p class="post-meta">
+                    Escrito Por
+                    <strong>{{ post.autor }} el </strong>
+                            {{ post.fecha_creacion}}
+                    </p>
+        {% endfor %}
+     {% else %}
+        <h2>No existen Post para esta categoria a un</h2>
+     {% endif %}
+           </div>
+      
+        {% endblock %}
+       

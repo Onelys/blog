@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% load static %} 
+
+        {% block titulo %}Servicio{% endblock%}
+
+        {% block titulo_principal %}Servicio a Dios{% endblock %}
+
+        {% block imagen %}{% static 'assets/img/servir.jpg' %}{% endblock imagen %}
+
+        {% block titulo_central %}{% endblock %}
+
+        {% block subtitulo %}{% endblock %}
+
+        {% block barra_busqueda %}
+        {% endblock %}
+        
+        {% block contenido %}
+        <!-- contenido generales-->
+        {% if posts %}
+        {% for post in posts%}
+           <div class="post-preview">
+              <a href="{% url 'blog:detalle_post' post.slug %}">
+                 <h2 class="post-title">{{ post.titulo }}</h2>
+                 <h3 class="post-subtitle">{{ post.descripcion }}</h3>
+              </a>
+                 <p class="post-meta">
+                    Escrito Por
+                    <strong>{{ post.autor }} el </strong>
+                            {{ post.fecha_creacion}}
+                    </p>
+        {% endfor %}
+     {% else %}
+        <h2>No existen Post para esta categoria a un</h2>
+     {% endif %}
+           </div>
+      
+        {% endblock %}
+       
