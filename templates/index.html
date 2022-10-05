@@ -16,7 +16,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     </head>
-    <body style="background-color: hsl(197, 15%, 72%)">
+    <body style="background-color: hsla(196, 9%, 75%, 0.89)">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
@@ -107,25 +107,20 @@
         </div>
 
       <div class="row">
-         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-           <div class="col-md-10 col-sm-10 col-lg-10 col-xs-10 float-left">
-             {% if posts.has_previous %}
-                  <div class="clearfix" style="background-color:rgb(255, 0, 38)">
-                    <a href="?page={{ posts.previous_page_number }}{% if request.GET.search %}&q={{ request.GET.search }}{% endif %}" class="btn btn-primary float-left">Anterior</a>
-                  </div>
-             {% endif %}
-           </div>
+         <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"></div>
+         <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                <div class="clearfix">
+                    {% if posts.has_previous %}
+                        <a href="?page={{ posts.previous_page_number }}{% if request.GET.search %}&q={{ request.GET.search }}{% endif %}" class="btn btn-primary float-left">Anterior</a>    
+                    {% endif %}
+                    {% if posts.has_next %}
+                        <a href="?page={{ posts.next_page_number }}{% if request.GET.search %}&q={{ request.GET.search }}{% endif %}" class="btn btn-primary float-end">Siguiente</a>
+                    {% endif %}
+                </div>
          </div>
-         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-           <div class="col-md-10 col-sm-10 col-lg-10 col-xs-10 float-right">
-             {% if posts.has_next %}
-                  <div class="clearfix" style="background-color:yellow">
-                     <a href="?page={{ posts.next_page_number }}{% if request.GET.search %}&q={{ request.GET.search }}{% endif %}" class="btn btn-primary float-right">Siguiente</a>
-                  </div>
-             {% endif %}
-           </div>
-         </div>
+         <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"></div>
       </div>
+     
 
        <hr>
        
